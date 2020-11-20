@@ -1,0 +1,41 @@
+{
+    "name": "PipeFlareClaimer",
+    "short_name": "PipeFlareClaimer",
+    "version": "1.0.0",
+    "description": "Extension which will claim cryptocurrencies automatically in pipe flare",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_icon": {
+            "32":  "icons/logo.png",
+            "128": "icons/logo.png"
+        }
+    },
+	"background": {
+		"page": "background/background.html",
+		"persistent": true
+	},
+	"permissions": [
+        "tabs",
+        "proxy",
+        "cookies",
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>"
+    ],
+    "browser_action": {
+        "default_popup": "popup/popup.html",
+        "default_title": "WebAppBar",
+        "default_icon": {
+            "32":  "icons/logo.png",
+            "128": "icons/logo.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "all_frames": true,
+            "matches": ["<all_urls>"],
+            "js": ["vendor/jquery-2.2.4.min.js"]
+        }
+    ]
+}
